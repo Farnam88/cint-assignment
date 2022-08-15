@@ -23,4 +23,12 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CintAssignment.ConsoleApp\CintAssignment.ConsoleApp.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="CoreTests" />
+    </ItemGroup>
+
 </Project>
