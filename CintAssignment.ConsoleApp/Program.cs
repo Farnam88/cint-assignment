@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using CintAssignment.Core;
+using CintAssignment.Core.Services;
 
 RobotCleanerCommandDto robotCleanerCommandDto = new();
 Console.WriteLine("Please Enter number of commands:");
@@ -27,5 +29,13 @@ BaseCommandModelBuilder commandModelBuilder = new CommandModelBuilder(commandPar
 commandModelBuilder.BuildStartingPoint(robotCleanerCommandDto.StartingPoint);
 commandModelBuilder.BuildCommands(robotCleanerCommandDto.Commands);
 var model = commandModelBuilder.Build();
+
+ICleaningContext cleaningContext = new CleaningContext();
+
+IRobotCleaner robotCleaner = new RobotCleaner(cleaningContext);
+
+var result = robotCleaner.UniqueCleanedPlaces(model);
+
+Console.WriteLine(result);
 
 Console.ReadKey();
