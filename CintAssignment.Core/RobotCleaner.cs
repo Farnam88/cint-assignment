@@ -23,35 +23,27 @@ public class RobotCleaner : IRobotCleaner
         for (int i = 0; i < input.Commands.Count; i++)
         {
             var command = input.Commands[i];
-            if (command.Direction == 'W')
+            switch (command.Direction)
             {
-                _cleaningContext.SetStrategy(leftDirection);
-                currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
-                continue;
-            }
-
-            if (command.Direction == 'E')
-            {
-                _cleaningContext.SetStrategy(rightDirection);
-                currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
-                continue;
-            }
-
-            if (command.Direction == 'S')
-            {
-                _cleaningContext.SetStrategy(downDirection);
-                currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
-                continue;
-            }
-
-            if (command.Direction == 'N')
-            {
-                _cleaningContext.SetStrategy(upDirection);
-                currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
+                case 'W':
+                    _cleaningContext.SetStrategy(leftDirection);
+                    currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
+                    break;
+                case 'E':
+                    _cleaningContext.SetStrategy(rightDirection);
+                    currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
+                    break;
+                case 'S':
+                    _cleaningContext.SetStrategy(downDirection);
+                    currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
+                    break;
+                case 'N':
+                    _cleaningContext.SetStrategy(upDirection);
+                    currentPoint = _cleaningContext.Execute(command.Moves, currentPoint, mapping);
+                    break;
             }
         }
-
-
+        
         return $"=> Cleaned: {mapping.Count}";
     }
 }
