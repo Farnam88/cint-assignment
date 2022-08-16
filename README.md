@@ -7,3 +7,4 @@
   - **DI:** I could have benefit from Dependency injection.
   - **Violating SRP:** In [IDirectionStrategy](https://github.com/Farnam88/cint-assignment/blob/0ac226237990091be9435bde250b4aacee784738/CintAssignment.Core/Services/IDirectionStrategy.cs) implementation SRP is violated because if I were to separate move from updating the HashSet, I would increase the program's complexity, which I didn't want to.
   - **Input data:** I could have implemented an object to receive input data separately instead of doing it in the Program class. 
+#### Please pay attention to commit messages.
