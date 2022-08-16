@@ -1,5 +1,3 @@
-using FluentAssertions;
-
 namespace CintAssignment.Tests.ConsoleAppTests;
 
 public class ParserTests
